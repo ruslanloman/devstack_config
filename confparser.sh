@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 GERRIT_PROJECT="newtest/newtest"
 
@@ -9,10 +9,12 @@ do
         array=(${line//::/ })
         if [ $GERRIT_PROJECT == ${array[0]} ]
         then
-                echo "Project Name - ${array[0]}"
-                echo "Devstack Repo - ${array[1]}"
-                echo "Devstack Branch- ${array[2]}"
-                echo "Localrc Repo - ${array[3]}"
-                echo "Localrc Branch - ${array[4]}"
+         {
+                echo  ${array[0]}
+                echo  ${array[1]}
+                echo  ${array[2]}
+                echo  ${array[3]}
+                echo  ${array[4]}
+        } > param.list
         fi
 done < $1
